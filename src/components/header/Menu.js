@@ -1,12 +1,8 @@
-import { useContext } from "react";
-import { UserNameContext } from "../../App";
-
-const Menu = () => {
-  const userName = useContext(UserNameContext);
+const Menu = ({ userName }) => {
   return (
     <ul className="nav nav-pills">
       <li className="nav-item">
-        <a href="/" className="nav-link" aria-current="page">
+        <a href="/" className="nav-link " aria-current="page">
           Home
         </a>
       </li>

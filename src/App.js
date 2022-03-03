@@ -1,19 +1,17 @@
-import React from "react";
+import { useState } from "react";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import Content from "./components/content/Content";
 
-export const UserNameContext = React.createContext();
-
 function App() {
+  const [userName, setUserName] = useState("Adam");
+
   return (
-    <UserNameContext.Provider value="Jim">
-      <main>
-        <Header />
-        <Content />
-        <Footer />
-      </main>
-    </UserNameContext.Provider>
+    <main>
+      <Header userName={userName} />
+      <Content userName={userName} onUpdateUserName={setUserName} />
+      <Footer userName={userName} />
+    </main>
   );
 }
 
