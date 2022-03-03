@@ -1,13 +1,25 @@
+import { useUpdateUserName } from "../context/UserContext";
+import { useUserName } from "../context/UserContext";
 import { useState } from "react";
 
-const UpdateProfileName = ({ userName, onUpdateUserName }) => {
-  const [newName, setNewName] = useState(userName);
+// const UpdateProfileName = ({ userName, onUpdateUserName }) => {
+const UpdateProfileName = () => {
+  // const [newName, setNewName] = useState(userName);
 
-  const onClickUpdate = (e) => {
+  const updateUserName = useUpdateUserName();
+  const userName = useUserName();
+
+  const [newUserName, setNewUserName] = useState(userName);
+
+  // const onClickUpdate = (e) => {
+  //   e.preventDefault();
+  //   onUpdateUserName(newName);
+  // };
+
+  const onUpdateUserName = (e) => {
     e.preventDefault();
-    onUpdateUserName(newName);
+    updateUserName(newUserName);
   };
-
   return (
     <div className="container col-xl-10 col-xxl-8 px-4 py-5">
       <div className="row align-items-center g-lg-5 py-5">
@@ -23,14 +35,17 @@ const UpdateProfileName = ({ userName, onUpdateUserName }) => {
                 className="form-control"
                 id="floatingInput"
                 placeholder="Name"
-                value={newName}
-                onChange={(e) => setNewName(e.target.value)}
+                // value={newName}
+                value={newUserName}
+                // onChange={(e) => setNewName(e.target.value)}
+                onChange={(e) => setNewUserName(e.target.value)}
               />
-              <label for="floatingInput">Name</label>
+              <label htmlFor="floatingInput">Name</label>
             </div>
 
             <button
-              onClick={onClickUpdate}
+              // onClick={onClickUpdate}
+              onClick={onUpdateUserName}
               className="w-100 btn btn-lg btn-primary"
             >
               Update

@@ -1,4 +1,10 @@
-const Menu = ({ userName }) => {
+// import { useContext } from "react";
+// import { userNameContext } from "../../App";
+import { useUserName } from "../context/UserContext";
+// const Menu = ({ userName }) => {
+const Menu = () => {
+  // const userName = useContext(userNameContext);
+  const userName = useUserName();
   return (
     <ul className="nav nav-pills">
       <li className="nav-item">
